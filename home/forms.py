@@ -5,4 +5,4 @@ from home import models
 class LinkForm(forms.ModelForm):
     class Meta:
         model = models.Link
-        fields = '__all__'
+        exclude = ('amount_of_visits', )

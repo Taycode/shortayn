@@ -19,3 +19,12 @@ def redirect_user(request, short_code):
     from .models import Link
     url = Link.objects.get(short_code=short_code)
     return redirect(url.redirect_to)
+
+
+def login_view(request):
+
+    if request.method == 'GET':
+        return render(request, 'home/login.html')
+
+    else:
+        pass

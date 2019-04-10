@@ -25,7 +25,10 @@ SECRET_KEY = '3jvsc&6%-wzb_!h147ep42ud=^&i*du&5u=4tr-##&+o6-)kvw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['shortayn.herokuapp.com']
+ALLOWED_HOSTS = [
+    'shortayn.herokuapp.com',
+    '127.0.0.1'
+    ]
 
 
 # Application definition

@@ -1,0 +1,48 @@
+{% load staticfiles %}
+{% block head %}
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/grid.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'home/css/normalize.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/style.css' %}">
+
+
+    <title> Shortayn </title>
+</head>
+{% endblock %}
+
+{% block nav %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"><h1> <ion-icon name="pulse"></ion-icon>  Shortayn</h1></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home:home' %}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html#how">How to Use</a>
+      </li>
+
+
+      <li class="nav-item ">
+        <a class="nav-link" href="signup.html">Sign Up</a>
+      </li>
+
+       <li class="nav-item">
+        <a class="nav-link" href="#">Login</a>
+      </li>
+
+
+    </ul>
+
+  </div>
+</nav>
+{% endblock %}

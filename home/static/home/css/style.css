@@ -1,0 +1,100 @@
+/*#0A79DF*/
+/*------------------
+//General styling
+*/
+*{
+	margin: 0;
+	padding:0;
+	box-sizing: border-box;
+}
+html, body{
+	background-color: white;
+	color: #555;
+	font-family: 'Lato', 'Arial', sans-serif;
+	font-weight: 300;
+	font-size: 20px;
+	text-rendering: optimizeLegibility;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
+.clearfix{
+	zoom: 1;
+}
+.clearfix:after{
+	content: '';
+	display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
+}
+section{
+	padding: 80px 0;
+}
+header{
+	background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)),url(img/header.jpg);
+	background-size: cover;
+	background-position: center;
+	height: 100vh;
+	background-attachment: fixed;
+}
+h1{
+	font-family: 'Pacifico', cursive;
+	color:white;
+	font-size: 100%;
+}
+.bg-light {
+    background-color: #2475B0 !important;
+
+}
+.mr-auto, .mx-auto {
+    margin-left: 25%;
+}
+.navbar-light .navbar-nav .active>.nav-link,{
+	font-weight: 400	;
+}
+.jumbotron{
+	padding-top: 15%;
+	background-color: transparent;
+	text-align: center;
+	font-weight: 400;
+}
+.display-4, .lead{
+	color: white;
+}
+.btn-primary{
+	background-color: #2475B0;
+}
+h3{
+	text-align: center;
+}
+h3:after{
+	display: block;
+	height: 2px;
+	background-color: #2475B0;
+	width:100px;
+	content:" ";
+	margin: 0 auto;
+	margin-top: 30px;
+	font-weight: bolder;
+}
+h4{
+	text-align: center;
+	padding-top: 50px;
+	color: white;
+}
+h4:after{
+	display: block;
+	height: 2px;
+	background-color: white;
+	width:100px;
+	content:" ";
+	margin: 0 auto;
+	margin-top: 30px;
+	font-weight: bolder;
+}
+
+.login-form{
+	padding-left: 20%;
+	padding-right: 20%;
+	padding-top: 5%;
+}
