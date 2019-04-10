@@ -13,8 +13,9 @@
     <title> Shortayn </title>
 </head>
 <body>
-	<header>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<header>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#"><h1> <ion-icon name="pulse"></ion-icon>  Shortayn</h1></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -22,62 +23,53 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#how">How to Use</a>
+        <a class="nav-link" href="index.html#how">How to Use</a>
       </li>
-      <li class="nav-item">
+
+      
+      <li class="nav-item ">
         <a class="nav-link" href="signup.html">Sign Up</a>
       </li>
- 
-      <li class="nav-item">
-        <a class="nav-link" href="login.html">Login </a>
+       <li class="nav-item active">
+        <a class="nav-link" href="#">Login</a>
       </li>
-      
+ 
     </ul>
    
   </div>
 </nav>
-	
-	<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h2 class="display-4">HARNESS EVERY CLICK</h2>
-    <p class="lead">Get shorter links with Shortayn. </p>
-    <p class="lead">
-    <button type="button" class="btn btn-primary">GET STARTED TODAY</button>
-	</p>
+
+
+
+		<h4> Login </h4>
+	<div class="container login-form">
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="Email1" aria-describedby="emailHelp" placeholder="Enter Email">
+    
   </div>
-</div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="Password1" placeholder="Password">
+  </div>
+ 
+  <button type="submit" class="btn btn-primary">Login</button>
+</form> 
 		
+	</div>
+
+	
+	
 </header>
-<section id="how">
-	<h3> How To Use</h3>
-</section>
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Submit</button>
-</form> -->
 
 
 
