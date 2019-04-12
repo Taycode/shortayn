@@ -28,3 +28,21 @@ def login_view(request):
 
     else:
         pass
+
+
+def signup_view(request):
+    if request.method == 'GET':
+        from home.forms import RegistrationForm
+        form = RegistrationForm
+        args = {'form': form}
+        return render(request, 'home/signup.html', args)
+    else:
+        from home.forms import RegistrationForm
+        form = RegistrationForm(request.POST)
+        if form.is_valid:
+            saved = form.save(commit=False)
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+
+
+

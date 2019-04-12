@@ -43,6 +43,9 @@ INSTALLED_APPS = [
 
     #django Apps
     'home',
+
+    #thrid party applications
+    'widget_tweaks'
 ]
 
 MIDDLEWARE = [

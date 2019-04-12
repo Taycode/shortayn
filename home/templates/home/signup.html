@@ -1,48 +1,14 @@
+{% load widget_tweaks %}
 <!DOCTYPE html>
+{% include 'home/base.html' %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link href="stylesheets/img/_ionicons_svg_ios-pulse.svg" rel= "shortcut icon" type= "image/x-icon"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/grid.css">
-	<link rel="stylesheet" type="text/css" href="stylesheets/normalize.css">
-    <link rel="stylesheet" type="text/css" href="stylesheet/style.css">
-
-   
-    <title> Shortayn </title>
-</head>
+{% block head %}
+{% endblock %}
 <body>
 <header>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#"><h1> <ion-icon name="pulse"></ion-icon>  Shortayn</h1></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="index.html#how">How to Use</a>
-      </li>
-
-      
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Sign Up</a>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link" href="login.html">Login</a>
-      </li>
- 
-    </ul>
-   
-  </div>
-</nav>
+{% block nav %}
+{% endblock %}
 
 
 
@@ -50,27 +16,28 @@
 	<div class="container login-form">
 <form>
   <div class="form-group">
-   
-    <input type="text" class="form-control" id="firstName" aria-describedby="emailHelp" placeholder="First Name">
+
+      {{ form.first_name|attr:"class:form-control"|attr:"aria-describedby:emailHelp"|attr:"placeholder:First Name" }}
+  </div>
+  <div class="form-group">
+    
+      {{ form.last_name|attr:"class:form-control"|attr:"aria-describedby:emailHelp"|attr:"placeholder:Last Name" }}
     
   </div>
   <div class="form-group">
     
-    <input type="text" class="form-control" id="lastName" aria-describedby="emailHelp" placeholder="Last Name">
+      {{ form.email|attr:"class:form-control"|attr:"aria-describedby:emailHelp"|attr:"placeholder:Enter email" }}
     
   </div>
   <div class="form-group">
     
-    <input type="email" class="form-control" id="email1" aria-describedby="emailHelp" placeholder="Enter email">
-    
+      {{ form.password1|attr:"class:form-control"|attr:"placeholder:Password" }}
+
   </div>
   <div class="form-group">
     
-    <input type="password" class="form-control" id="Password1" placeholder="Password">
-  </div>
-  <div class="form-group">
-    
-    <input type="password2" class="form-control" id="Password2" placeholder="Confirm Password">
+      {{ form.password2|attr:"class:form-control"|attr:"placeholder:Confirm Password" }}
+
   </div>
  
   <button type="submit" class="btn btn-primary">Sign Up</button>

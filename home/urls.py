@@ -5,6 +5,7 @@ from home import views
 urlpatterns = [
     path('', views.index, name='home'),
     path('login/', views.login_view, name='login'),
-    path('<str:short_code>/', views.redirect_user),
+    path('signup/', views.signup_view, name='signup'),
+    path('<str:short_code>/', views.redirect_user, name='redirect'),
 
 ]
