@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth import login, authenticate
 
 
 def index(request):
     from .forms import LinkForm
     if request.method == 'GET':
         form = LinkForm()
-        args = {'form':form}
+        args = {'form': form}
         return render(request, 'home/index.html', args)
     else:
         form = LinkForm(request.POST)
@@ -45,4 +46,16 @@ def signup_view(request):
             password = form.cleaned_data['password1']
 
 
+            saved.save()
+            user = authenticate(username=username, password=password)
+            print('authenticated', user)
 
+            if user is not None:
+                print(user)
+                if user.is_active:
+                    login(request, user)
+                    return redirect('home:home')
+
+
+def shorten(request):
+    pass
