@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 
@@ -22,13 +23,24 @@ def redirect_user(request, short_code):
     return redirect(url.redirect_to)
 
 
+
 def login_view(request):
 
     if request.method == 'GET':
         return render(request, 'home/login.html')
 
     else:
-        pass
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        print(email)
+        try:
+            user = User.objects.get(email=email)
+            user = authenticate(username=user.username, password=password)
+            print('authenticated', user)
+            login(request, user)
+            return redirect('home:home')
+        except:
+            return redirect('home:signup')
 
 
 def signup_view(request):
@@ -44,8 +56,6 @@ def signup_view(request):
             saved = form.save(commit=False)
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
-
-
             saved.save()
             user = authenticate(username=username, password=password)
             print('authenticated', user)

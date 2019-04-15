@@ -34,7 +34,7 @@ header{
 	background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)),url(img/header.jpg);
 	background-size: cover;
 	background-position: center;
-	height: 100vh;
+	height: 110vh;
 	background-attachment: fixed;
 }
 h1{
@@ -49,7 +49,7 @@ h1{
 .mr-auto, .mx-auto {
     margin-left: 25%;
 }
-.navbar-light .navbar-nav .active>.nav-link,{
+.navbar-light .navbar-nav .active.nav-link{
 	font-weight: 400	;
 }
 .jumbotron{
