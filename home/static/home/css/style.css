@@ -49,7 +49,7 @@ h1{
 .mr-auto, .mx-auto {
     margin-left: 25%;
 }
-.navbar-light .navbar-nav .active>.nav-link,{
+.navbar-light .navbar-nav .active.nav-link{
 	font-weight: 400	;
 }
 .jumbotron{
@@ -97,4 +97,9 @@ h4:after{
 	padding-left: 20%;
 	padding-right: 20%;
 	padding-top: 5%;
+}
+.form-control{
+	width: 65% ;
+    height: calc(1.2em + .65rem + 2px);
+
 }
