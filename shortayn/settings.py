@@ -45,10 +45,12 @@ INSTALLED_APPS = [
     'home',
 
     #thrid party applications
-    'widget_tweaks'
+    'widget_tweaks',
+    'ipaddr'
 ]
 
 MIDDLEWARE = [
+    'ipaddr.middleware.IPAddrMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

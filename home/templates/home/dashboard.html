@@ -1,0 +1,171 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'home/css/grid.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+
+    <title> Shortayn </title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <h1>
+                <ion-icon name="pulse"></ion-icon> Shortayn
+            </h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+            <ul class="navbar-nav mr-auto searchbar">
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-4" type="search" placeholder="Search..." aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                        <ion-icon size="large" name="search"></ion-icon>
+                    </button>
+                </form>
+
+            </ul>
+
+        </div>
+    </nav>
+    <div class="jumbotron summary">
+        <div class="row">
+            <div class="col span-1-of-4">
+                <div class="number_of icon row">
+                    <ion-icon name="contact"></ion-icon>
+                </div>
+                <div class=" number_of row">
+                   {{ request.user.username }}
+                </div>
+                <div class=" desc row">
+                    USERNAME
+                </div>
+
+            </div>
+
+
+
+            <div class="col span-1-of-4">
+                <div class="number_of icon row">
+                    <ion-icon name="stats"></ion-icon>
+                </div>
+                <div class=" number_of row">
+                    {{ total_clicks }}
+                </div>
+                <div class=" desc row">
+                    CLICKS
+                </div>
+
+            </div>
+
+            <div class="col span-1-of-4">
+                <div class="number_of icon row">
+                    <ion-icon name="link"></ion-icon>
+                </div>
+                <div class=" number_of row">
+                    {{ links.count }}
+                </div>
+                <div class=" desc row">
+                    LINKS CREATED
+                </div>
+
+            </div>
+            <div class="col span-1-of-4">
+                <div class="number_of icon row">
+                    <ion-icon name="pin"></ion-icon>
+                </div>
+                <div class=" number_of row">
+                    {{ ip_data.regionName }}, {{ ip_data.country }}
+                </div>
+                <div class=" desc row">
+                    LOCATION
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <section class="links">
+        <div class="row">
+            <div class="col span-1-of-5 shortened">
+                <div class="row">
+                    <h3> Shortened links </h3>
+                </div>
+                <hr>
+                {% for link in links %}
+                <div class="row">
+                        <div class="card">
+                                <div class="card-body">
+                                  <h5 class="card-title"> {{ link.short_code }}</h5>
+                                  <h6 class="card-subtitle mb-2 text-muted">Dec 20th, 2016</h6>
+                                  <p class="card-text">{{ link.redirect_to }}</p>
+                                  <a href="#" target="_blank" class="card-link">shortlink.com/{{ link.short_code }}</a>
+                                  <br>
+                                  <p>
+                                    <ion-icon name="stats"></ion-icon>  {{ link.amount_of_visits }} CLICKS
+                                  </p>
+
+                                </div>
+                              </div>
+
+                </div>
+                {% endfor %}
+
+
+
+            </div>
+            <div class="col span-4-of-5">
+                <div class="row">
+                    <h3> Shorten </h3>
+                </div>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="formGroupExampleInput"> Short Code </label>
+                        {{ form.short_code|attr:"class:form-control"|attr:"id:formGroupExampleInput2"|attr:"placeholder:Link Code" }}
+
+                    </div>
+                    <div class="form-group">
+                        {{ form.redirect_to|attr:"class:form-control"|attr:"id:formGroupExampleInput2"|attr:"placeholder:Link to be Shortened" }}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Shorten</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Bootstrap Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/ionicons@4.4.4/dist/ionicons.js"></script>
+
+</body>
+
+</html>

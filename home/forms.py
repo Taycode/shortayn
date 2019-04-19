@@ -7,7 +7,7 @@ from home import models
 class LinkForm(forms.ModelForm):
     class Meta:
         model = models.Link
-        exclude = ('amount_of_visits', )
+        exclude = ('amount_of_visits', 'user')
 
 
 class RegistrationForm(UserCreationForm):

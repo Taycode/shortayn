@@ -34,7 +34,7 @@ header{
 	background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)),url(img/header.jpg);
 	background-size: cover;
 	background-position: center;
-	height: 100vh;
+	height: 110vh;
 	background-attachment: fixed;
 }
 h1{
@@ -98,8 +98,54 @@ h4:after{
 	padding-right: 20%;
 	padding-top: 5%;
 }
-.form-control{
-	width: 65% ;
-    height: calc(1.2em + .65rem + 2px);
-
+/* Summary */
+.summary{
+    background-color: rgb(25, 77, 114);
+}
+.summary_desc{
+    text-align: center;
+    align-content: center;
+    color: white;
+}
+.links{
+    padding: 2%;
+}
+.number_of{
+    color: white;
+    text-align: center;
+    font-size: 160%;
+}
+.icon{
+    font-size: 200%;    
+}
+.desc{
+    font-size: 70%;
+    color: white;
+    text-align: center;
+}
+.jumbotron{
+	padding: 6%;
+	border-radius: 0px;
+}
+.btn-outline-success {
+    color:white;
+    border-color:white;
+}
+.btn-outline-success:hover {
+    background-color:  rgb(25, 77, 114);
+}
+.card{
+    width: 80%;
+}
+.searchbar{
+    margin-left: 50%;
+}
+.shortened{
+	font-size: 70%;
+}
+.card-subtitle{
+	font-size: 70%;
+}
+.card-link:hover{
+	color:  rgb(25, 77, 114);
 }

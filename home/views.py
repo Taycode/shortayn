@@ -4,22 +4,20 @@ from django.contrib.auth import login, authenticate
 
 
 def index(request):
-    from .forms import LinkForm
+
     if request.method == 'GET':
-        form = LinkForm()
-        args = {'form': form}
-        return render(request, 'home/index.html', args)
-    else:
-        form = LinkForm(request.POST)
-        if form.is_valid:
-            form.save()
-            return redirect('home:home')
-    return render(request, 'home/index.html')
+        if request.user.is_authenticated:
+            return redirect('home:dashboard')
+        else:
+            return render(request, 'home/index.html')
+
 
 
 def redirect_user(request, short_code):
     from .models import Link
     url = Link.objects.get(short_code=short_code)
+    url.amount_of_visits += 1
+    url.save()
     return redirect(url.redirect_to)
 
 
@@ -67,5 +65,28 @@ def signup_view(request):
                     return redirect('home:home')
 
 
-def shorten(request):
-    pass
+def dashboard(request):
+    from .forms import LinkForm
+    from .models import Link
+    from ipaddr import client_ip
+    import requests
+    if request.method == 'GET':
+        form = LinkForm()
+        links = Link.objects.filter(user=request.user)
+        total_clicks = 0
+        for link in links:
+            total_clicks += link.amount_of_visits
+        client_address = client_ip(request)
+        response = requests.get("http://ip-api.com/json/"+ client_address)
+        args = {'form': form, 'links': links, 'total_clicks': total_clicks, 'ip_data':response}
+
+        return render(request, 'home/dashboard.html', args)
+    else:
+        form = LinkForm(request.POST)
+        if form.is_valid:
+            saved = form.save(commit=False)
+            saved.user = request.user
+            saved.save()
+            return redirect('home:home')
+
+    return render(request, 'home/dashboard.html')

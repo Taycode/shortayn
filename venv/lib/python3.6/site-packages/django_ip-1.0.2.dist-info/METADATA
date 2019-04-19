@@ -1,0 +1,62 @@
+Metadata-Version: 2.0
+Name: django-ip
+Version: 1.0.2
+Summary: Django Client IP
+Home-page: https://github.com/django-xxx/django-ip
+Author: Hackathon
+Author-email: kimi.huang@brightcells.com
+License: UNKNOWN
+Description-Content-Type: UNKNOWN
+Keywords: django-ip
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Office/Business :: Financial :: Spreadsheet
+Requires-Dist: django-six
+
+=========
+django-ip
+=========
+
+Simple return user's real IP address in Django
+
+Installation
+============
+
+::
+
+    pip install django-ip
+
+
+Usage
+=====
+
+::
+
+    # Need Setting
+    request.client_ip
+
+    # Not Need Setting
+    from ipaddr import client_ip
+    def xxx(request):
+        ipaddr = client_ip(request)
+
+
+Settings.py
+===========
+
+::
+
+    # Use `MIDDLEWARE_CLASSES` prior to Django 1.10
+    MIDDLEWARE = (
+        ...
+        'ipaddr.middleware.IPAddrMiddleware',
+        ...
+    )
+
+
+
