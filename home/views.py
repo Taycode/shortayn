@@ -32,7 +32,7 @@ def login_view(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
         try:
-            user = User.objects.get(email=email)
+            user = User.objects.get(email=email.lower())
             user = authenticate(username=user.username, password=password)
             login(request, user)
             return redirect('home:home')
@@ -51,18 +51,25 @@ def signup_view(request):
         from home.forms import RegistrationForm
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            saved = form.save(commit=False)
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password1']
-            saved.save()
-            user = authenticate(username=username, password=password)
-            print('authenticated', user)
+            email = form.cleaned_data['email']
+            user = User.objects.filter(email=email)
+            print(user)
+            if user.count() == 0:
+                saved = form.save(commit=False)
+                username = form.cleaned_data['username']
+                password = form.cleaned_data['password1']
+                saved.email = form.cleaned_data['email'].lower()
+                saved.save()
+                user = authenticate(username=username, password=password)
 
-            if user is not None:
-                print(user)
-                if user.is_active:
-                    login(request, user)
-                    return redirect('home:home')
+                if user is not None:
+                    print(user)
+                    if user.is_active:
+                        login(request, user)
+                        return redirect('home:home')
+            else:
+                messages.add_message(request, messages.ERROR, 'email has already been used')
+                return render(request, 'home/signup.html', {'form': form})
         else:
             return render(request, 'home/signup.html', {'form': form})
 
