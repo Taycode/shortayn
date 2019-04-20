@@ -90,8 +90,6 @@ def dashboard(request):
             saved.save()
             return redirect('home:home')
 
-    return render('home/dashboard.html')
-
 
 def logout_view(request):
     from django.contrib.auth import logout
