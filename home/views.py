@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
+from django.contrib import messages
 
 
 def index(request):
@@ -30,15 +31,14 @@ def login_view(request):
     else:
         email = request.POST.get('email')
         password = request.POST.get('password')
-        print(email)
         try:
             user = User.objects.get(email=email)
             user = authenticate(username=user.username, password=password)
-            print('authenticated', user)
             login(request, user)
             return redirect('home:home')
         except:
-            return redirect('home:signup')
+            messages.add_message(request, messages.WARNING, 'email or password is incorrect')
+            return redirect('home:login')
 
 
 def signup_view(request):
@@ -50,7 +50,7 @@ def signup_view(request):
     else:
         from home.forms import RegistrationForm
         form = RegistrationForm(request.POST)
-        if form.is_valid:
+        if form.is_valid():
             saved = form.save(commit=False)
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
@@ -63,7 +63,8 @@ def signup_view(request):
                 if user.is_active:
                     login(request, user)
                     return redirect('home:home')
-
+        else:
+            return render(request, 'home/signup.html', {'form': form})
 
 def dashboard(request):
     from .forms import LinkForm
@@ -90,3 +91,9 @@ def dashboard(request):
             return redirect('home:home')
 
     return render(request, 'home/dashboard.html')
+
+
+def logout_view(request):
+    from django.contrib.auth import logout
+    logout(request)
+    return redirect('home:home')

@@ -7,7 +7,10 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     path('login/', views.login_view, name='login'),
     path('signup/', views.signup_view, name='signup'),
-    path('<str:short_code>/', views.redirect_user, name='redirect'),
+    path('logout/', views.logout_view, name='logout'),
+
+
 
 
 ]
+urlpatterns += path('<str:short_code>/', views.redirect_user, name='redirect'),

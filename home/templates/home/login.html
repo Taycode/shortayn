@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load widget_tweaks %}
 {% include 'home/base.html' %}
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +14,13 @@
 
 		<h4> Login </h4>
 	<div class="container login-form">
+        {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 <form method="post">
     {% csrf_token %}
   <div class="form-group">
