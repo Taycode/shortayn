@@ -79,7 +79,7 @@ def dashboard(request):
             total_clicks += link.amount_of_visits
         client_address = client_ip(request)
         response = requests.get("http://ip-api.com/json/"+ client_address)
-        args = {'form': form, 'links': links, 'total_clicks': total_clicks, 'ip_data':response}
+        args = {'form': form, 'links': links, 'total_clicks': total_clicks, 'ip_data':response.json()}
 
         return render(request, 'home/dashboard.html', args)
     else:
