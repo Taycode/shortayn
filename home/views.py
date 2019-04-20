@@ -90,7 +90,7 @@ def dashboard(request):
             saved.save()
             return redirect('home:home')
 
-    return render(request, 'home/dashboard.html')
+    return render('home/dashboard.html')
 
 
 def logout_view(request):
