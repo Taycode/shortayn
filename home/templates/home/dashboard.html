@@ -114,9 +114,9 @@
                         <div class="card">
                                 <div class="card-body">
                                   <h5 class="card-title"> {{ link.short_code }}</h5>
-                                  <h6 class="card-subtitle mb-2 text-muted">Dec 20th, 2016</h6>
+                                  <h6 class="card-subtitle mb-2 text-muted">{{ link.time_created }}</h6>
                                   <p class="card-text">{{ link.redirect_to }}</p>
-                                  <a href="#" target="_blank" class="card-link">shortlink.com/{{ link.short_code }}</a>
+                                  <a href="http://shortayn.herokuapp.com/{{ link.short_code }}" target="_blank" class="card-link">shortayn.herokuapp.com/{{ link.short_code }}</a>
                                   <br>
                                   <p>
                                     <ion-icon name="stats"></ion-icon>  {{ link.amount_of_visits }} CLICKS
