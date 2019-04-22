@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -73,6 +74,8 @@ def signup_view(request):
         else:
             return render(request, 'home/signup.html', {'form': form})
 
+
+@login_required
 def dashboard(request):
     from .forms import LinkForm
     from .models import Link
@@ -101,4 +104,11 @@ def dashboard(request):
 def logout_view(request):
     from django.contrib.auth import logout
     logout(request)
+    return redirect('home:home')
+
+
+def delete_link(request, short_code):
+    from home.models import Link
+    link = Link.objects.get(short_code=short_code)
+    link.delete()
     return redirect('home:home')
