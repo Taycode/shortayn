@@ -102,14 +102,6 @@ h4:after{
 	padding-right: 20%;
 	padding-top: 5%;
 }
-.form-group {
-    margin-bottom: 0.5rem !important;
-}
-.form-control {
-    display: block;
-    width: 94%;
-    height: calc(1.2em + .55rem + 0.7px);
-}
 
 /* Summary */
 .summary{
