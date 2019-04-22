@@ -125,7 +125,7 @@
                                   <p>
                                     <ion-icon name="stats"></ion-icon>  {{ link.amount_of_visits }} CLICKS
                                   </p>
-                                    <p><a href="{% url 'home:delete_link' %}">delete link</a> </p>
+                                    <p><a href="{% url 'home:delete_link' link.short_code %}">delete link</a> </p>
 
                                 </div>
                               </div>
