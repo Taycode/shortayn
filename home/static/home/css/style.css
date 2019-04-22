@@ -34,7 +34,7 @@ header{
 	background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)),url(img/header.jpg);
 	background-size: cover;
 	background-position: center;
-	height: 110vh;
+	height: 100vh;
 	background-attachment: fixed;
 }
 h1{
@@ -51,9 +51,13 @@ h1{
 }
 .navbar-light .navbar-nav .active.nav-link{
 	font-weight: 400	;
+
+}
+.navbar-light .navbar-nav .nav-link {
+    color: white;
 }
 .jumbotron{
-	padding-top: 15%;
+	padding-top: 15% !important;
 	background-color: transparent;
 	text-align: center;
 	font-weight: 400;
@@ -137,8 +141,8 @@ h4:after{
 .card{
     width: 80%;
 }
-.searchbar{
-    margin-left: 50%;
+.searchbar {
+    margin-left: 88%;
 }
 .shortened{
 	font-size: 70%;
@@ -148,4 +152,61 @@ h4:after{
 }
 .card-link:hover{
 	color:  rgb(25, 77, 114);
+}
+.signout{
+    color: white;
+    padding-left: 20%;
+}
+.login_card{
+    margin-left: 15%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    border-radius: 25px;
+    margin-right: 15%;
+    background-color: #2475b033;
+
+}
+.how{
+    padding: 4%;
+    text-align: center;
+}
+.number{
+    margin-right: 5%;
+}
+.how_icon{
+    margin-left: 25%;
+    margin-bottom: 5%;
+}
+.padd{
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+.signin_card{
+     margin-left: 15%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-radius: 25px;
+    margin-right: 15%;
+    background-color: #2475b033;
+}
+
+/*FOOTER*/
+.footer_sec{
+    background-color: #2475B0 !important;
+    padding-top: 8% !important;
+
+    padding-bottom: 0% !important;
+    margin-bottom: 0%;
+    color: white;
+    font-size: 80%;
+}
+
+/* -------------------*/
+/* Queries*/
+/* -------------------*/
+@media only screen and (max-width: 500px){
+    header{
+        height: 80vh;
+    }
+
 }

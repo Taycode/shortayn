@@ -32,12 +32,16 @@
 
 
             <ul class="navbar-nav mr-auto searchbar">
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-4" type="search" placeholder="Search..." aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                        <ion-icon size="large" name="search"></ion-icon>
-                    </button>
-                </form>
+                <!--<form class="form-inline my-2 my-lg-0">-->
+                    <!--<input class="form-control mr-sm-4" type="search" placeholder="Search..." aria-label="Search">-->
+                    <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">-->
+                        <!--<ion-icon size="large" name="search"></ion-icon>-->
+                    <!--</button>-->
+                <!--</form>-->
+                 <li class="nav-item  signout" data-toggle="tooltip" data-placement="top" title="Sign Out">
+
+        <a class="nav-link" href="{% url 'home:logout' %}">  <ion-icon size="large" name="log-out"></ion-icon>   </a>
+      </li>
 
             </ul>
 
@@ -106,7 +110,7 @@
         <div class="row">
             <div class="col span-1-of-5 shortened">
                 <div class="row">
-                    <h3> Shortened links </h3>
+                    <h3> Shortened  </h3>
                 </div>
                 <hr>
                 {% for link in links %}
@@ -139,8 +143,9 @@
                 <form action="" method="post">
                     {% csrf_token %}
                     <div class="form-group">
-                        <label for="formGroupExampleInput"> Short Code </label>
-                        {{ form.short_code|attr:"class:form-control"|attr:"id:formGroupExampleInput2"|attr:"placeholder:Link Code" }}
+                        <!--<label for="formGroupExampleInput"> Short Code </label>-->
+                        <br>
+                        {{ form.short_code|attr:"class:form-control"|attr:"id:formGroupExampleInput2"|attr:"placeholder:Link title" }}
 
                     </div>
                     <div class="form-group">
