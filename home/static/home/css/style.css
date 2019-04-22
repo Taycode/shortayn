@@ -57,7 +57,7 @@ h1{
     color: white;
 }
 .jumbotron{
-	padding-top: 15%;
+	padding-top: 15% !important;
 	background-color: transparent;
 	text-align: center;
 	font-weight: 400;
@@ -166,6 +166,21 @@ h4:after{
     background-color: #2475b033;
 
 }
+.how{
+    padding: 4%;
+    text-align: center;
+}
+.number{
+    margin-right: 5%;
+}
+.how_icon{
+    margin-left: 25%;
+    margin-bottom: 5%;
+}
+.padd{
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
 .signin_card{
      margin-left: 15%;
     padding-top: 2%;
@@ -176,8 +191,14 @@ h4:after{
 }
 
 /*FOOTER*/
-.footer_p{
-    text-align: center;
+.footer_sec{
+    background-color: #2475B0 !important;
+    padding-top: 8% !important;
+
+    padding-bottom: 0% !important;
+    margin-bottom: 0%;
+    color: white;
+    font-size: 80%;
 }
 
 /* -------------------*/
