@@ -54,7 +54,6 @@ def signup_view(request):
         if form.is_valid():
             email = form.cleaned_data['email']
             user = User.objects.filter(email=email)
-            print(user)
             if user.count() == 0:
                 saved = form.save(commit=False)
                 username = form.cleaned_data['username']
@@ -64,7 +63,6 @@ def signup_view(request):
                 user = authenticate(username=username, password=password)
 
                 if user is not None:
-                    print(user)
                     if user.is_active:
                         login(request, user)
                         return redirect('home:home')
@@ -87,9 +85,9 @@ def dashboard(request):
         total_clicks = 0
         for link in links:
             total_clicks += link.amount_of_visits
-        client_address = client_ip(request)
-        response = requests.get("http://ip-api.com/json/"+ client_address)
-        args = {'form': form, 'links': links, 'total_clicks': total_clicks, 'ip_data':response.json()}
+        ##client_address = client_ip(request)
+        #response = requests.get("http://ip-api.com/json/"+ client_address)
+        args = {'form': form, 'links': links, 'total_clicks': total_clicks} #'ip_data':response.json()}
 
         return render(request, 'home/dashboard.html', args)
     else:
