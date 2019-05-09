@@ -92,11 +92,16 @@ def dashboard(request):
         return render(request, 'home/dashboard.html', args)
     else:
         form = LinkForm(request.POST)
-        if form.is_valid:
-            saved = form.save(commit=False)
-            saved.user = request.user
-            saved.save()
-            return redirect('home:home')
+        if Link.objects.filter(user = request.user).count() <= 4:
+            if form.is_valid:
+                saved = form.save(commit=False)
+                saved.user = request.user
+                saved.save()
+                return redirect('home:home')
+        else:
+            messages.add_message(request, messages.ERROR, 'You cannot hav more than 5 links')
+            return redirect('home:dashboard')
+
 
 
 def logout_view(request):
