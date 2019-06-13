@@ -1,4 +1,5 @@
-#!/home/taycode/Desktop/shortayn/venv/bin/python
+#!/home/oluwasogo/Desktop/shortayn/venv/bin/python
+
 # -*- coding: utf-8 -*-
 import re
 import sys
