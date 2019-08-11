@@ -1,3 +1,5 @@
 venv/
+venv
+/venv
 .sqlite3
 .idea/
