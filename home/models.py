@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime
 
+
 class Link(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     short_code = models.CharField(max_length=30, unique=True)

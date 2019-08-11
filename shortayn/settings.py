@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     #thrid party applications
     'rest_framework',
     'widget_tweaks',
-    'ipaddr'
+    'ipaddr',
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
@@ -148,10 +149,9 @@ django_heroku.settings(locals())
 
 LOGIN_URL = 'home:login'
 
-
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-    )
+)
 }

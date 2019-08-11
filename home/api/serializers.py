@@ -6,7 +6,13 @@ from home import models
 class LinkSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Link
-        exclude = ['user',]
+        exclude = ['user', ]
+
+
+class LinkCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Link
+        fields = ['short_code', 'redirect_to']
 
 
 class LoginSerializer(serializers.ModelSerializer):

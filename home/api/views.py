@@ -5,7 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse, HttpResponse
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from rest_framework import status
 
@@ -26,6 +26,7 @@ def link_list(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 @api_view(['DELETE', 'GET'])
 def link_details(request, short_code):
     try:
@@ -38,7 +39,6 @@ def link_details(request, short_code):
     elif request.method == 'GET':
         serializer = LinkSerializer(link)
         return Response(serializer.data, status=status.HTTP_200_OK)
-
 
 
 @api_view(['POST'])
@@ -56,3 +56,10 @@ def login_view(request):
                 return Response(status=status.HTTP_200_OK)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET'])
+def logout_view(request):
+    if request.method == 'GET':
+        logout(request)
+        return Response(status=status.HTTP_200_OK)
