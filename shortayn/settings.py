@@ -26,8 +26,7 @@ SECRET_KEY = '3jvsc&6%-wzb_!h147ep42ud=^&i*du&5u=4tr-##&+o6-)kvw'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'shortayn.herokuapp.com',
-    '127.0.0.1'
+    '*'
     ]
 
 
